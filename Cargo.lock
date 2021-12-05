@@ -4901,6 +4901,27 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-orders"
+version = "0.0.1"
+dependencies = [
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "pallet-balances",
+ "pallet-cannabis",
+ "pallet-peptides",
+ "pallet-timestamp",
+ "pallet-users",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-std",
+]
+
+[[package]]
 name = "pallet-peptides"
 version = "0.0.1"
 dependencies = [
@@ -5289,6 +5310,7 @@ dependencies = [
  "pallet-balances",
  "pallet-cannabis",
  "pallet-collator-selection",
+ "pallet-orders",
  "pallet-peptides",
  "pallet-session",
  "pallet-sudo",
