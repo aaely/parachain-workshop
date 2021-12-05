@@ -28,6 +28,7 @@ pallet-cannabis = { path = "../pallets/cannabis", default-features = false, vers
 pallet-peptides = { path = "../pallets/peptides", default-features = false, version = '0.0.1' }
 pallet-users = { path = "../pallets/users", default-features = false, version = '0.0.1' }
 pallet-orders = { path = "../pallets/orders", default-features = false, version = '0.0.1' }
+pallet-social_media = { path = "../pallets/social_media", default-features = false, version = '0.0.1' }
 
 # Substrate Dependencies
 ## Substrate Primitive Dependencies
@@ -118,6 +119,7 @@ std = [
 	"pallet-peptides/std",
 	"pallet-users/std",
 	"pallet-orders/std",
+	"pallet-social_media/std",
 	"pallet-timestamp/std",
 	"pallet-transaction-payment-rpc-runtime-api/std",
 	"pallet-transaction-payment/std",

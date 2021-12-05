@@ -4990,6 +4990,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-social_media"
+version = "0.0.1"
+dependencies = [
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "pallet-balances",
+ "pallet-timestamp",
+ "pallet-users",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-std",
+]
+
+[[package]]
 name = "pallet-staking"
 version = "4.0.0-dev"
 source = "git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.13#fcc54a72973d03afe7bf9e3ef2736050b3f33465"
@@ -5313,6 +5332,7 @@ dependencies = [
  "pallet-orders",
  "pallet-peptides",
  "pallet-session",
+ "pallet-social_media",
  "pallet-sudo",
  "pallet-template",
  "pallet-timestamp",
