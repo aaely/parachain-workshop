@@ -4607,6 +4607,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-cannabis"
+version = "0.0.1"
+dependencies = [
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "pallet-timestamp",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-std",
+]
+
+[[package]]
 name = "pallet-collator-selection"
 version = "3.0.0"
 source = "git+https://github.com/paritytech/cumulus?branch=polkadot-v0.9.13#0be8e8fc214641e306e4f913dd64ff1913e46e95"
@@ -4884,6 +4901,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-peptides"
+version = "0.0.1"
+dependencies = [
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "pallet-timestamp",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-std",
+]
+
+[[package]]
 name = "pallet-proxy"
 version = "4.0.0-dev"
 source = "git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.13#fcc54a72973d03afe7bf9e3ef2736050b3f33465"
@@ -5093,6 +5127,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-users"
+version = "0.0.1"
+dependencies = [
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "pallet-timestamp",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-std",
+]
+
+[[package]]
 name = "pallet-utility"
 version = "4.0.0-dev"
 source = "git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.13#fcc54a72973d03afe7bf9e3ef2736050b3f33465"
@@ -5236,13 +5287,16 @@ dependencies = [
  "pallet-aura",
  "pallet-authorship",
  "pallet-balances",
+ "pallet-cannabis",
  "pallet-collator-selection",
+ "pallet-peptides",
  "pallet-session",
  "pallet-sudo",
  "pallet-template",
  "pallet-timestamp",
  "pallet-transaction-payment",
  "pallet-transaction-payment-rpc-runtime-api",
+ "pallet-users",
  "pallet-xcm",
  "parachain-info",
  "parity-scale-codec",

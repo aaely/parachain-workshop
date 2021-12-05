@@ -59,6 +59,9 @@ use xcm_executor::{Config, XcmExecutor};
 
 /// Import the template pallet.
 pub use pallet_template;
+pub use pallet_cannabis;
+pub use pallet_peptides;
+pub use pallet_users;
 
 /// Alias to 512-bit hash when used in the context of a transaction signature on the chain.
 pub type Signature = MultiSignature;
@@ -588,6 +591,18 @@ impl pallet_template::Config for Runtime {
 	type Event = Event;
 }
 
+impl pallet_cannabis::Config for Runtime {
+	type Event = Event;
+}
+
+impl pallet_peptides::Config for Runtime {
+	type Event = Event;
+}
+
+impl pallet_users::Config for Runtime {
+	type Event = Event;
+}
+
 // Create the runtime by composing the FRAME pallets that were previously configured.
 construct_runtime!(
 	pub enum Runtime where
@@ -622,6 +637,9 @@ construct_runtime!(
 
 		// Template
 		TemplatePallet: pallet_template::{Pallet, Call, Storage, Event<T>}  = 40,
+		Cannabis: pallet_cannabis::{Pallet, Call, Storage, Event<T>}  = 41,
+		Peptides: pallet_peptides::{Pallet, Call, Storage, Event<T>}  = 42,
+		Users: pallet_users::{Pallet, Call, Storage, Event<T>}  = 43,
 	}
 );
 

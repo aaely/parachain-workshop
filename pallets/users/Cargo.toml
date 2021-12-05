@@ -1,15 +1,17 @@
 [package]
-name = "pallet-template"
-authors = ["Anonymous"]
-description = "FRAME pallet template for defining custom runtime logic."
-version = "0.1.0"
-license = "Unlicense"
-homepage = "https://substrate.io"
-repository = "https://github.com/paritytech/substrate/"
-edition = "2021"
+authors = ['Substrate DevHub <https://github.com/substrate-developer-hub>']
+description = 'FRAME pallet template for defining custom runtime logic.'
+edition = '2018'
+homepage = 'https://substrate.dev'
+license = 'Unlicense'
+name = 'pallet-users'
+publish = false
+readme = 'README.md'
+repository = 'https://github.com/substrate-developer-hub/substrate-node-template/'
+version = '0.0.1'
 
 [package.metadata.docs.rs]
-targets = ["x86_64-unknown-linux-gnu"]
+targets = ['x86_64-unknown-linux-gnu']
 
 [dependencies]
 codec = { package = "parity-scale-codec", version = "2.0.0", features = ["derive"], default-features = false }
@@ -18,6 +20,8 @@ scale-info = { version = "1.0.0", features = ["derive"], default-features = fals
 frame-benchmarking = { git = "https://github.com/paritytech/substrate", default-features = false, optional = true, branch = "polkadot-v0.9.13" }
 frame-support = { git = "https://github.com/paritytech/substrate", default-features = false, branch = "polkadot-v0.9.13" }
 frame-system = { git = "https://github.com/paritytech/substrate", default-features = false, branch = "polkadot-v0.9.13" }
+sp-std = { git = "https://github.com/paritytech/substrate", default-features = false, branch = "polkadot-v0.9.13" }
+pallet-timestamp = { git = "https://github.com/paritytech/substrate", default-features = false, branch = "polkadot-v0.9.13" }
 
 [dev-dependencies]
 serde = { version = "1.0.119" }
@@ -26,12 +30,15 @@ sp-runtime = { git = "https://github.com/paritytech/substrate", default-features
 sp-io = { git = "https://github.com/paritytech/substrate", default-features = false, branch = "polkadot-v0.9.13" }
 
 [features]
-default = ["std"]
-runtime-benchmarks = ["frame-benchmarking"]
+default = ['std']
+runtime-benchmarks = ['frame-benchmarking']
 std = [
-	"codec/std",
-	"scale-info/std",
-	"frame-support/std",
-	"frame-system/std",
-	"frame-benchmarking/std",
+    'codec/std',
+    'scale-info/std',
+    'frame-support/std',
+    'frame-system/std',
+    'frame-benchmarking/std',
+    'pallet-timestamp/std',
+    'sp-std/std',
 ]
+try-runtime = ['frame-support/try-runtime']
