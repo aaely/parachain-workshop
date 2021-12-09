@@ -20,3 +20,18 @@ parathreads [here](https://wiki.polkadot.network/docs/learn-parathreads).
 
 🧙 Learn about how to use this template and run your own parachain testnet for it in the
 [Devhub Cumulus Tutorial](https://docs.substrate.io/tutorials/v3/cumulus/start-relay/).
+
+A light client version of the UI is available at https://github.com/aaely/light-client-ui. You will need to 
+add your wallet address to the chain spec to get access to funds because the keyring package is not available
+with webpack 5, which is a requirement for the smoldot-light-node. I am unable to access the injected dev 
+accounts without the keyring package for transfers of funds. To do this, do the following:
+
+(assuming you already have rust, node, and npm installed)
+cargo build --release
+./target/release/parachain-collator build-spec --chain local > ChainSpecPlain.json
+
+Open the created ChainSpecPlain.json file and add your address into the array under "balances".
+
+./target/release/parachain-collator build-spec --chain ./ChainSpecPlain.json --raw > ChainSpecRaw.json
+
+In the UI, you will need to ensure the created chain_spec file is imported in the /src/Recoil/recoil.tsx file. I have not been able to get this to sync correctly as of yet, but, upon returning the api object,and in theory, everything should work exactly as they did on the WsProvider version of the wrapper.
