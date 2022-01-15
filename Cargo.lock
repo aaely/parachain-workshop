@@ -4677,6 +4677,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-dns"
+version = "0.0.1"
+dependencies = [
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "pallet-timestamp",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-std",
+]
+
+[[package]]
 name = "pallet-election-provider-multi-phase"
 version = "4.0.0-dev"
 source = "git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.13#fcc54a72973d03afe7bf9e3ef2736050b3f33465"
@@ -5329,6 +5346,7 @@ dependencies = [
  "pallet-balances",
  "pallet-cannabis",
  "pallet-collator-selection",
+ "pallet-dns",
  "pallet-orders",
  "pallet-peptides",
  "pallet-session",

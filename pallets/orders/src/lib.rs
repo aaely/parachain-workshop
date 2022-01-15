@@ -94,6 +94,7 @@ pub mod pallet {
 				let order = Orders::<T>::get(count.clone()).unwrap_or(Default::default());
 				Self::add_order_to_user_orders(&order, &who);
 				OrderCount::<T>::put(count + 1);
+				Self::deposit_event(Event::<T>::TransferSuccess(who));
 				Ok(())
 			}
 	}

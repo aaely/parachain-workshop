@@ -197,6 +197,9 @@ pub mod pallet {
 		}
 
 		fn production_cost_calc(amino_chain: &Vec<AminoAcid>) -> (u32, u32) {
+			///
+			///I had entirely too many issues with .pow() so I ended up doing this instead
+			///
 			let mut total: u32 = 0;
 			let mut yld: f64 = 0.97;
 			for amino in amino_chain {

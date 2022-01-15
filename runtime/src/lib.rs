@@ -64,6 +64,7 @@ pub use pallet_peptides;
 pub use pallet_users;
 pub use pallet_orders;
 pub use pallet_social_media;
+pub use pallet_dns;
 
 /// Alias to 512-bit hash when used in the context of a transaction signature on the chain.
 pub type Signature = MultiSignature;
@@ -612,6 +613,10 @@ impl pallet_orders::Config for Runtime {
 impl pallet_social_media::Config for Runtime {
 	type Event = Event;
 }
+
+impl pallet_dns::Config for Runtime {
+	type Event = Event;
+}
 // Create the runtime by composing the FRAME pallets that were previously configured.
 construct_runtime!(
 	pub enum Runtime where
@@ -651,6 +656,7 @@ construct_runtime!(
 		Users: pallet_users::{Pallet, Call, Storage, Event<T>}  = 43,
 		Orders: pallet_orders::{Pallet, Call, Storage, Event<T>}  = 44,
 		SocialMedia: pallet_social_media::{Pallet, Call, Storage, Event<T>}  = 45,
+		Dns: pallet_dns::{Pallet, Call, Storage, Event<T>} = 46,
 	}
 );
 

@@ -121,9 +121,9 @@ pub fn local_testnet_config() -> ChainSpec {
 
 	ChainSpec::from_genesis(
 		// Name
-		"SubsList Local",
+		"SubsList",
 		// ID
-		"local_testnet",
+		"local",
 		ChainType::Local,
 		move || {
 			testnet_genesis(
@@ -160,7 +160,7 @@ pub fn local_testnet_config() -> ChainSpec {
 		// Telemetry
 		None,
 		// Protocol ID
-		Some("template-local"),
+		Some("dot"),
 		// Properties
 		Some(properties),
 		// Extensions
