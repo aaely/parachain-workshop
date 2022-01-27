@@ -12,7 +12,7 @@ mod benchmarking;
 pub mod pallet {
 	use super::*;
 	use frame_support::pallet_prelude::*;
-	use frame_system::pallet_prelude::*;
+	use frame_system::{pallet_prelude::*, ensure_signed};
 	use sp_std::prelude::*;
 	use codec::{Encode, Decode};
 
@@ -31,6 +31,14 @@ pub mod pallet {
 		profile_image: Vec<u8>,
 		pub total_orders: u32,
 		pub total_posts: u32,
+	}
+
+	#[derive(Debug, Clone, PartialEq, Default, Encode, Decode, scale_info::TypeInfo)]
+	pub struct SolanaAccount<AccountId> {
+		dot_ref: AccountId,
+		cosmos_ref: Vec<u8>,
+		sol_addr: Vec<u8>,
+		mnemonic: Vec<u8>, //saved in hashed format using cosmJS, decrypted by cosmos secret key
 	}
 
 	/// Configure the pallet by specifying the parameters and types on which it depends.
@@ -82,10 +90,13 @@ pub mod pallet {
 	#[pallet::getter(fn get_user_email_availability)]
 	pub(super) type UserEmailAvailability<T> = StorageMap<_, Twox64Concat, u128, bool, ValueQuery>;
 
-
 	#[pallet::storage]
 	#[pallet::getter(fn profile_image_by_account)]
 	pub(super) type ProfileImageByAccount<T: Config> = StorageMap<_, Twox64Concat, T::AccountId, (Vec<u8>, Vec<u8>), ValueQuery>;
+
+	#[pallet::storage]
+	#[pallet::getter(fn get_sol_by_dot)]
+	pub(super) type SolMnemonic<T: Config> = StorageMap<_, Twox64Concat, T::AccountId, SolanaAccount<T::AccountId>, ValueQuery>;
 
 	// Pallets use events to inform users when important changes are made.
 	// https://docs.substrate.io/v3/runtime/events
@@ -202,6 +213,24 @@ pub mod pallet {
 				Self::initiate_user(&edited_user);
 				Ok(())
 			}
+
+		#[pallet::weight(0)]
+		pub fn attach_sol_acct(
+			origin: OriginFor<T>,
+			cosmos_address: Vec<u8>,
+			sol_addr: Vec<u8>,
+			mnemonic: Vec<u8>,
+		) -> DispatchResult {
+			let signer = ensure_signed(origin)?;
+			SolMnemonic::<T>::insert(signer.clone(), SolanaAccount {
+				dot_ref: signer.clone(),
+				cosmos_ref: cosmos_address,
+				sol_addr,
+				mnemonic,
+			});
+			Ok(())
+		}
+		
 	}
 	
 	impl<T: Config> Pallet<T> {

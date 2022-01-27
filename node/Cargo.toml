@@ -26,7 +26,7 @@ runtime-benchmarks = ["parachain-template-runtime/runtime-benchmarks"]
 derive_more = "0.99.2"
 log = "0.4.14"
 codec = { package = "parity-scale-codec", version = "2.0.0" }
-structopt = "0.3.8"
+structopt = "0.3.25"
 serde = { version = "1.0.119", features = ["derive"] }
 hex-literal = "0.3.1"
 
@@ -92,3 +92,6 @@ polkadot-cli = { git = "https://github.com/paritytech/polkadot", branch = "relea
 polkadot-parachain = { git = "https://github.com/paritytech/polkadot", branch = "release-v0.9.13" }
 polkadot-primitives = { git = "https://github.com/paritytech/polkadot", branch = "release-v0.9.13" }
 polkadot-service = { git = "https://github.com/paritytech/polkadot", branch = "release-v0.9.13" }
+
+# Contracts dependencies
+pallet-contracts-rpc = { git = "https://github.com/paritytech/substrate", package = "pallet-contracts-rpc", branch = "polkadot-v0.9.13" }
